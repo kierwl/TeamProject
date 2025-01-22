@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    [SerializeField, Tooltip("카드 앞면")] GameObject frontGO;
-    [SerializeField, Tooltip("카드 뒷면")] GameObject backGO;
+    public GameObject frontGO;  // 카드 앞면 오브젝트
+    public GameObject backGO;   // 카드 뒷면 오브젝트
 
     [SerializeField, Tooltip("카드 앞면 오브젝트의 스프라이트 렌더러")] SpriteRenderer frontImg;
+    [SerializeField, Tooltip("카드 뒷면 오브젝트의 Animator")] Animator backAnim;
 
     public int cardIdx = 0;     // 카드 번호
 
@@ -23,28 +24,38 @@ public class Card : MonoBehaviour
     }
 
     /// <summary>
-    /// 카드를 앞면으로 바꾸는 함수
+    /// 카드를 뒤집는 함수
     /// </summary>
-    public void ReverseCard()
+    private void ReverseCard()
     {
-        Debug.Log("Reverse");
         // 카드의 활성 상태를 현재 상태의 반대가 되도록 전환
-        bool isActive = !frontGO.activeSelf;
-        frontGO.SetActive(isActive);
-        isActive = !backGO.activeSelf;
-        backGO.SetActive(isActive);
+        frontGO.SetActive(!frontGO.activeSelf);
+        backGO.SetActive(!backGO.activeSelf);
+    }
+
+    /// <summary>
+    /// 뒷면인 카드를 클릭했을 때 호출되는 함수
+    /// </summary>
+    public void OpenCard()
+    {
+        backAnim.SetBool("Reverse", true);
+        // 카드 뒤집기 함수 호출
+        Invoke("ReverseCard", 0.4f);
 
         GameManager gm = GameManager.Instance;
 
         // 이 카드가 뒤집히기 전에 뒤집힌 카드가 없다면
         if(gm.firstCard == null)
         {
+            // 이 카드를 firstCard 변수의 값으로
             gm.firstCard = this;
         }
         else
         {// 카드 한 장이 이미 뒤집힌 상태라면
+            // 이 카드를 secondCard 변수의 값으로
             gm.secondCard = this;
             // 게임매니저에서 매치 확인 함수를 호출
+            gm.Matched();
         }
     }
 
