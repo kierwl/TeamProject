@@ -13,8 +13,6 @@ public class GameManager : MonoBehaviour
     public int cardCount = 0;               //카드 개수
     public Card firstCard;                  //첫번째 카드
     public Card secondCard;                 //두번째 카드
-    public int cardcount = 0;               //카드 개수
-
     AudioSource audioSource;                //BGM
     public AudioClip clip;
     public Image detailBoxImg;              //맞춘 카드의 이미지
@@ -27,7 +25,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
-
     void Start()
     {
         Time.timeScale = 1.0f;
@@ -70,13 +67,12 @@ public class GameManager : MonoBehaviour
         firstCard = null;
         secondCard = null;
     }
-
     void ShowDetails(Card card)
     {
         detailBox.SetActive(true);
         emptyPanel.SetActive(true);
 
-        //detailBoxImg.sprite = card.frontGO.GetComponent<SpriteRenderer>().sprite;
+        detailBoxImg.sprite = card.frontGO.GetComponent<SpriteRenderer>().sprite;
 
         isRunning = false;
 
