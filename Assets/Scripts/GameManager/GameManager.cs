@@ -39,7 +39,10 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        time += Time.deltaTime;             //시간 경과중
+        if(isRunning)
+        {
+            time += Time.deltaTime;
+        }
         timeTxt.text = time.ToString("N2");
 
         if(time >= 60.0f)
