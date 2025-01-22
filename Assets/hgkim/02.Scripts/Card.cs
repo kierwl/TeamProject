@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    public GameObject frontGO;
-    public GameObject backGO;
+    public GameObject frontGO;  // 카드 앞면 오브젝트
+    public GameObject backGO;   // 카드 뒷면 오브젝트
 
     [SerializeField, Tooltip("카드 앞면 오브젝트의 스프라이트 렌더러")] SpriteRenderer frontImg;
+    [SerializeField, Tooltip("카드 뒷면 오브젝트의 Animator")] Animator backAnim;
 
     public int cardIdx = 0;     // 카드 번호
 
@@ -37,8 +38,9 @@ public class Card : MonoBehaviour
     /// </summary>
     public void OpenCard()
     {
+        backAnim.SetBool("Reverse", true);
         // 카드 뒤집기 함수 호출
-        ReverseCard();
+        Invoke("ReverseCard", 0.4f);
 
         GameManager gm = GameManager.Instance;
 
