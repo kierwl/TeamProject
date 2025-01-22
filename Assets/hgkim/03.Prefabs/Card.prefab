@@ -133,6 +133,7 @@ MonoBehaviour:
   frontGO: {fileID: 251096429509409465}
   backGO: {fileID: 4689717357104607307}
   frontImg: {fileID: 329935434135997342}
+  backAnim: {fileID: 3526205375206403165}
   cardIdx: 0
 --- !u!1 &1923758141595766522
 GameObject:
@@ -167,10 +168,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6469738152718773845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3327201959823171756
 CanvasRenderer:
@@ -256,7 +257,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3755662955656971906}
         m_TargetAssemblyTypeName: Card, Assembly-CSharp
-        m_MethodName: ReverseCard
+        m_MethodName: OpenCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -294,7 +295,7 @@ RectTransform:
   m_GameObject: {fileID: 2009317848463775248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0013, y: 0.0013, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2707575395727601529}
@@ -378,6 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7661180663246269591}
   - component: {fileID: 1177663904936831805}
+  - component: {fileID: 3526205375206403165}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -395,7 +397,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6469738152718773845}
@@ -442,7 +444,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -6632006748370393314, guid: 1ec62ca6aa635474bbffa2bf24ec7006, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -453,3 +455,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3526205375206403165
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4689717357104607307}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 36257ece8551ada428808ef4ae5ca90c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
