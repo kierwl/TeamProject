@@ -328,10 +328,24 @@ MonoBehaviour:
   cardCount: 0
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
-  cardcount: 0
   clip: {fileID: 0}
   detailBoxImg: {fileID: 0}
   isRunning: 1
+  ownerTxt: {fileID: 0}
+  detailTxt: {fileID: 0}
+  endPanel: {fileID: 0}
+  failPanel: {fileID: 0}
+  tMI_Details:
+  - {fileID: 11400000, guid: 8e67eeda7f1092f4da47285f5713f4c2, type: 2}
+  - {fileID: 11400000, guid: 52aabcdccd4cae8478ddb10b3ea220cc, type: 2}
+  - {fileID: 11400000, guid: eb92e02feed9b9e48a110c18cb10b4ea, type: 2}
+  - {fileID: 11400000, guid: e2dd5b69cd25cfc43bb0e93e868fac7b, type: 2}
+  - {fileID: 11400000, guid: 1f995db592a9b4841a2b8be74080bda5, type: 2}
+  - {fileID: 11400000, guid: 4c89c2b080333c54abe2f03d9b2928d1, type: 2}
+  - {fileID: 11400000, guid: e89b31ee5e307944fb5d53e7a4293864, type: 2}
+  - {fileID: 11400000, guid: 5f627ae4d3d1e4345baf195a8232466a, type: 2}
+  - {fileID: 11400000, guid: 6680205b845eb2c438d32630962927ac, type: 2}
+  - {fileID: 11400000, guid: 4fedff360c730ff4792a3f7bb5f758ee, type: 2}
 --- !u!114 &1558689518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,11 +355,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1558689515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bdd3aa8abe068a49a5ec09f48d080be, type: 3}
+  m_Script: {fileID: 11500000, guid: c4392a5214b21be4995476c2c6290ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards: {fileID: 3380207115976809635, guid: 8938962e98908374caa64105319a0e79, type: 3}
-  card: {fileID: 1201771427568531337, guid: 8938962e98908374caa64105319a0e79, type: 3}
+  cards: {fileID: 602196384511177877, guid: 3069aa2e42e966147879581235816c24, type: 3}
+  card: {fileID: 1831921830979204664, guid: 3069aa2e42e966147879581235816c24, type: 3}
   cardcount: 0
 --- !u!1 &1671065856
 GameObject:
