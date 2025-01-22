@@ -32,8 +32,12 @@ public class Card : MonoBehaviour
         backGO.SetActive(!backGO.activeSelf);
     }
 
+    /// <summary>
+    /// 뒷면인 카드를 클릭했을 때 호출되는 함수
+    /// </summary>
     public void OpenCard()
     {
+        // 카드 뒤집기 함수 호출
         ReverseCard();
 
         GameManager gm = GameManager.Instance;
@@ -41,10 +45,12 @@ public class Card : MonoBehaviour
         // 이 카드가 뒤집히기 전에 뒤집힌 카드가 없다면
         if(gm.firstCard == null)
         {
+            // 이 카드를 firstCard 변수의 값으로
             gm.firstCard = this;
         }
         else
         {// 카드 한 장이 이미 뒤집힌 상태라면
+            // 이 카드를 secondCard 변수의 값으로
             gm.secondCard = this;
             // 게임매니저에서 매치 확인 함수를 호출
             gm.Matched();
