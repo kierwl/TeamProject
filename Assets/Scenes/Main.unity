@@ -259,6 +259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a2a1ce858845c47aeb0ee22d9e8338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeTxt: {fileID: 0}
+  endTxt: {fileID: 0}
+  firstCard: {fileID: 0}
+  secondCard: {fileID: 0}
+  cardcount: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

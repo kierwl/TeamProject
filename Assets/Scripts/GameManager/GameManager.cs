@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;               //끝날 때 나오는 텍스트
     float time = 0f;                        //시작 시간(현재 시간)
 
+    public Card firstCard;                  //첫번째 카드
+    public Card secondCard;                 //두번째 카드
+    public int cardcount = 0;               //카드 개수
+    
+
 
     void Awake()
     {
