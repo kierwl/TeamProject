@@ -17,7 +17,7 @@ public class Board : MonoBehaviour
         {
             GameObject go = Instantiate(card, this.transform); // 게임오브젝트의 위치값을 받아옴
 
-            float x = (i % 5) * 1.1f - 2.2f; // x축 카드의 간격 계산
+            float x = (i % 4) * 1.2f - 2f; // x축 카드의 간격 계산
             float y = (i / 5) * 1.1f - 3.2f; // y축 카드의 간격 계산
             
             go.transform.position = new Vector2(x, y); // 위치값 평면기준으로 벡터2d 생성
