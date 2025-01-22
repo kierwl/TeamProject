@@ -23,16 +23,18 @@ public class Card : MonoBehaviour
     }
 
     /// <summary>
-    /// 카드를 앞면으로 바꾸는 함수
+    /// 카드를 뒤집는 함수
     /// </summary>
-    public void ReverseCard()
+    private void ReverseCard()
     {
-        Debug.Log("Reverse");
         // 카드의 활성 상태를 현재 상태의 반대가 되도록 전환
-        bool isActive = !frontGO.activeSelf;
-        frontGO.SetActive(isActive);
-        isActive = !backGO.activeSelf;
-        backGO.SetActive(isActive);
+        frontGO.SetActive(!frontGO.activeSelf);
+        backGO.SetActive(!backGO.activeSelf);
+    }
+
+    public void OpenCard()
+    {
+        ReverseCard();
 
         GameManager gm = GameManager.Instance;
 
@@ -45,6 +47,7 @@ public class Card : MonoBehaviour
         {// 카드 한 장이 이미 뒤집힌 상태라면
             gm.secondCard = this;
             // 게임매니저에서 매치 확인 함수를 호출
+            gm.Matched();
         }
     }
 
