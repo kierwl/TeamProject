@@ -328,7 +328,7 @@ MonoBehaviour:
   cardCount: 0
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 14295202f91437b4d8a03d9bb176ff8d, type: 3}
   detailBoxImg: {fileID: 0}
   isRunning: 1
 --- !u!114 &1558689518
