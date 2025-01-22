@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    [SerializeField, Tooltip("카드 앞면")] GameObject frontGO;
-    [SerializeField, Tooltip("카드 뒷면")] GameObject backGO;
+    public GameObject frontGO;
+    public GameObject backGO;
 
     [SerializeField, Tooltip("카드 앞면 오브젝트의 스프라이트 렌더러")] SpriteRenderer frontImg;
 
