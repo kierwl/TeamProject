@@ -328,7 +328,6 @@ MonoBehaviour:
   cardCount: 0
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
-  cardcount: 0
   clip: {fileID: 0}
   detailBoxImg: {fileID: 0}
   isRunning: 1
@@ -341,11 +340,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1558689515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bdd3aa8abe068a49a5ec09f48d080be, type: 3}
+  m_Script: {fileID: 11500000, guid: c4392a5214b21be4995476c2c6290ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards: {fileID: 3380207115976809635, guid: 8938962e98908374caa64105319a0e79, type: 3}
-  card: {fileID: 1201771427568531337, guid: 8938962e98908374caa64105319a0e79, type: 3}
+  cards: {fileID: 602196384511177877, guid: 3069aa2e42e966147879581235816c24, type: 3}
+  card: {fileID: 1831921830979204664, guid: 3069aa2e42e966147879581235816c24, type: 3}
   cardcount: 0
 --- !u!1 &1671065856
 GameObject:
