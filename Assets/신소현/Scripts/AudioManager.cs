@@ -66,4 +66,8 @@ public class AudioManager : MonoBehaviour
             audioSource.Stop(); // BGM 정지
         }
     }
+
+
+
+    
 }

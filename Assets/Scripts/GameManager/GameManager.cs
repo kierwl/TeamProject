@@ -59,21 +59,33 @@ public class GameManager : MonoBehaviour
     }
     void GameFinish()
     {
-        Time.timeScale = 0.0f;              //게임 잠시 멈추고
-        endPanel.SetActive(true);           //끝났다는 글자 등장 -> 이부분을 TMI 나오는 방향으로
-        AudioManager.Instance.StopMusic();
-        AudioManager.Instance?.PlaySound(AudioManager.Instance.Victory);
+        Time.timeScale = 0.0f;
+        endPanel.SetActive(true);
 
-
+        PlayEndGameSound(AudioManager.Instance?.Victory);
     }
+
     void GameFail()
     {
-        Time.timeScale = 0.0f;              //게임 잠시 멈추고
-        failPanel.SetActive(true);          //실패 패널 등장
-        AudioManager.Instance.StopMusic();
-        AudioManager.Instance?.PlaySound(AudioManager.Instance.Fail);
+        Time.timeScale = 0.0f;
+        failPanel.SetActive(true);
+
+        PlayEndGameSound(AudioManager.Instance?.Fail);
     }
-    
+
+    private void PlayEndGameSound(AudioClip clip)
+    {
+        //AudioManager.Instance?.StopMusic();
+        if (clip != null)
+        {
+            AudioManager.Instance.PlaySound(clip);
+        }
+        else
+        {
+            Debug.LogWarning("End game sound clip is not set.");
+        }
+    }
+
     void Reset()
     {
         // 게임 상태 초기화
