@@ -28,12 +28,17 @@ public class AudioManager : MonoBehaviour
         }
         
     }
+        
+    
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = bgm;
         audioSource.Play(); // BGM 재생
+
+        audioSource.volume = 0.6f;
+        
     }
 
     private void Update()
@@ -51,7 +56,14 @@ public class AudioManager : MonoBehaviour
             audioSource.pitch = 1.4f;
             hasFurtherIncreasedPitch = true; // 한 번만 적용되도록 플래그 설정
         }
+
     }
+
+    public void SetPitch(float pitch)
+    {
+        audioSource.pitch = pitch;
+    }
+
     public void PlaySound(AudioClip clip)
     {
         if (clip != null)
@@ -66,4 +78,8 @@ public class AudioManager : MonoBehaviour
             audioSource.Stop(); // BGM 정지
         }
     }
+
+
+
+    
 }
