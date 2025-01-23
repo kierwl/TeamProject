@@ -6,6 +6,7 @@ public class EndPanel : MonoBehaviour
 {
     public List<TMI_Details> tMI_Details;
     public Text ownerName;
+    public Image zepImage;
     public Image detailImage_01;
     public Text detailTxt_01;
     public Image detailImage_02;
@@ -21,6 +22,8 @@ public class EndPanel : MonoBehaviour
     void Update()
     {
         ownerName.text = tMI_Details[currentPage * 2].Owner;
+
+        zepImage.sprite = tMI_Details[currentPage * 2].ZepImage;
 
         detailImage_01.sprite = tMI_Details[currentPage * 2].Image;
         detailTxt_01.text = tMI_Details[currentPage * 2].Detail;
