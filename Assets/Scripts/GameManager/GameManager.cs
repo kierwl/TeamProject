@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        Reset();
         Time.timeScale = 1.0f;
     }
     void Update()
@@ -58,13 +59,34 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;              //게임 잠시 멈추고
         endPanel.SetActive(true);           //끝났다는 글자 등장 -> 이부분을 TMI 나오는 방향으로
+        AudioManager.Instance.StopMusic();
+
+        
     }
     void GameFail()
     {
         Time.timeScale = 0.0f;              //게임 잠시 멈추고
         failPanel.SetActive(true);          //실패 패널 등장
+        AudioManager.Instance.StopMusic();
+        
     }
     
+    void Reset()
+    {
+        // 게임 상태 초기화
+        time = 0f;
+        cardCount = 0;
+        firstCard = null;
+        secondCard = null;
+        isRunning = true;
+
+        // UI 초기화
+        timeTxt.text = "0.00";
+        endPanel.SetActive(false);
+        failPanel.SetActive(false);
+        detailBox.SetActive(false);
+        emptyPanel.SetActive(false);
+    }
 
     public void Matched()                   //열어 본 카드 두개 비교
     {

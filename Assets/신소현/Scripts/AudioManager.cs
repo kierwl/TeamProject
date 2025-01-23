@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -28,5 +28,12 @@ public class AudioManager : MonoBehaviour
 
         audioSource.clip = this.clip;
         audioSource.Play();
+    }
+    public void StopMusic()
+    {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop(); // À½¾Ç Á¤Áö
+        }
     }
 }
