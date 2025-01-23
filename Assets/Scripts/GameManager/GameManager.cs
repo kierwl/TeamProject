@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject endPanel;             //성공시의 패널
     public GameObject failPanel;            //실패시의 패널
     public List<TMI_Details> tMI_Details;   //TMI 정보들
-
+    public GameObject particlePrefab;       //파티클 추가
 
 
     void Awake()
@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;              //게임 잠시 멈추고
         failPanel.SetActive(true);          //실패 패널 등장
     }
+    
+
     public void Matched()                   //열어 본 카드 두개 비교
     {
         if(firstCard.cardIdx == secondCard.cardIdx)     //일치할 경우
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
 
             firstCard.CallDestroyCard();
             secondCard.CallDestroyCard();
-
+            SpawnParticleEffect(secondCard.transform.position);
             ShowDetails(firstCard);                     //디테일 보여줌
 
             cardCount -= 2;                             //카드 개수 업데이트
@@ -81,10 +83,17 @@ public class GameManager : MonoBehaviour
         {
             firstCard.CallCloseCard();
             secondCard.CallCloseCard();
+            
+
         }
                                                         //매치카드 초기화
         firstCard = null;
         secondCard = null;
+    }
+    private void SpawnParticleEffect(Vector3 position) // 파티클 생성
+    {
+        // 파티클을 카드 위치에서 생성
+        Instantiate(particlePrefab, position, Quaternion.identity);
     }
     void ShowDetails(Card card)
     {
@@ -111,4 +120,5 @@ public class GameManager : MonoBehaviour
 
         yield break;
     }
+    
 }
