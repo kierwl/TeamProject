@@ -18,18 +18,34 @@ public class AudioButton : MonoBehaviour
 
         // 슬라이더를 활성화/비활성화하는 버튼 클릭 이벤트 연결
         toggleButton.onClick.AddListener(ToggleSlider);
+        
+
+       
+       
+
+       
     }
 
     // 볼륨을 설정하는 함수
-    void SetVolume(float volume)
+    public void SetVolume(float volume)
     {
         AudioListener.volume = volume;
+        // 변경된 볼륨을 PlayerPrefs에 저장
+        PlayerPrefs.SetFloat("Volume", volume);
+        PlayerPrefs.Save();
     }
 
     // 슬라이더 활성화/비활성화 함수
-    void ToggleSlider()
+    public void ToggleSlider()
     {
-        volumeSlider.interactable = !volumeSlider.interactable;  // 현재 상태의 반대값으로 설정
+        // 게임 오브젝트 활성화 상태 확인
+        bool isActive = volumeSlider.gameObject.activeSelf;
+
+        // 슬라이더의 활성화/비활성화 토글
+        volumeSlider.gameObject.SetActive(!isActive);
+
+        // 로그로 상태 확인
+        Debug.Log("Slider active: " + volumeSlider.gameObject.activeSelf);
     }
 }
 
