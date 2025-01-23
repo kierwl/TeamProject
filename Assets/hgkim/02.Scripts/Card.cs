@@ -35,7 +35,6 @@ public class Card : MonoBehaviour
         // 카드의 활성 상태를 현재 상태의 반대가 되도록 전환
         frontGO.SetActive(!frontGO.activeSelf);
         backGO.SetActive(!backGO.activeSelf);
-        open = !open;
     }
 
     /// <summary>
@@ -46,6 +45,8 @@ public class Card : MonoBehaviour
         // 카드가 이미 앞면인 상태라면 return
         if(open) return;
 
+        // 카드를 열림 상태로
+        open = true;
         backAnim.SetBool("Reverse", true);
         // 카드 뒤집기 함수 호출
         Invoke("ReverseCard", 0.4f);
@@ -94,6 +95,8 @@ public class Card : MonoBehaviour
     /// </summary>
     public void CallCloseCard()
     {
+        // 카드를 닫힘 상태로
+        open = false;
         backAnim.SetBool("Reverse", false);
         // 0.5초 후에 ReverseCard 함수 호출
         Invoke("ReverseCard", 0.5f);
