@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;               //끝날 때 나오는 텍스트 (바뀜)
     public GameObject detailBox;            //카드 설명 패널
     public GameObject emptyPanel;           //카드 터치 방지용
-    float time = 0f;                        //시작 시간(현재 시간)
+    public float time = 0f;                 //시작 시간(현재 시간)
     public int cardCount = 0;               //카드 개수
     public Card firstCard;                  //첫번째 카드
     public Card secondCard;                 //두번째 카드
@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
+           
         }
+        
     }
     void Start()
     {
