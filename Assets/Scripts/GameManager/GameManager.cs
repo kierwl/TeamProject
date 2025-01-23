@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         Reset();
         Time.timeScale = 1.0f;
+
     }
     void Update()
     {
@@ -59,21 +60,40 @@ public class GameManager : MonoBehaviour
     }
     void GameFinish()
     {
-        Time.timeScale = 0.0f;              //게임 잠시 멈추고
-        endPanel.SetActive(true);           //끝났다는 글자 등장 -> 이부분을 TMI 나오는 방향으로
-        AudioManager.Instance.StopMusic();
-        AudioManager.Instance?.PlaySound(AudioManager.Instance.Victory);
-
-
+        Time.timeScale = 0.0f;
+        endPanel.SetActive(true);
+        AudioManager.Instance.SetPitch(1.0f);
+        PlayEndGameSound(AudioManager.Instance?.Victory);
+        
     }
+
     void GameFail()
     {
-        Time.timeScale = 0.0f;              //게임 잠시 멈추고
-        failPanel.SetActive(true);          //실패 패널 등장
-        AudioManager.Instance.StopMusic();
-        AudioManager.Instance?.PlaySound(AudioManager.Instance.Fail);
+        Time.timeScale = 0.0f;
+        failPanel.SetActive(true);
+        AudioManager.Instance.SetPitch(1.0f);
+        PlayEndGameSound(AudioManager.Instance?.Fail);
+        
     }
-    
+
+    private void PlayEndGameSound(AudioClip clip)
+    {
+        if (AudioManager.Instance == null)
+        {
+            Debug.LogError("AudioManager.Instance is null. Ensure AudioManager is in the scene.");
+            return;
+        }
+
+        if (clip == null)
+        {
+            Debug.LogWarning("AudioClip is null. Please assign a valid AudioClip in AudioManager.");
+            return;
+        }
+
+     // AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySound(clip);
+    }
+
     void Reset()
     {
         // 게임 상태 초기화
