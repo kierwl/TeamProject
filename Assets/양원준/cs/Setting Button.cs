@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class SettingsMenu : MonoBehaviour
+public class SettingMenu : MonoBehaviour
 {
     public GameObject settingsPanel; // 설정 메뉴 패널을 참조합니다.
 
