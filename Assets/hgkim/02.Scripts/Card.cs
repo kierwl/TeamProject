@@ -6,7 +6,7 @@ public class Card : MonoBehaviour
 {
     public GameObject frontGO;  // 카드 앞면 오브젝트
     public GameObject backGO;   // 카드 뒷면 오브젝트
-
+    
     [SerializeField, Tooltip("카드 앞면 오브젝트의 스프라이트 렌더러")] SpriteRenderer frontImg;
     [SerializeField, Tooltip("카드 뒷면 오브젝트의 Animator")] Animator backAnim;
 
@@ -98,10 +98,5 @@ public class Card : MonoBehaviour
         // 0.5초 후에 ReverseCard 함수 호출
         Invoke("ReverseCard", 0.5f);
     }
-    void CloseCardInvoke() // 카드 닫기 함수
-    {
-        backAnim.SetBool("Reverse", false); // 애니메이션 파라미터 false로 설정
-        frontGO.SetActive(false); // 정면 비활성화
-        backGO.SetActive(true);// 뒷면 활성화
-    }
+    
 }
