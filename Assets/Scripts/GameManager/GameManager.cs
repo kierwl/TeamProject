@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         Reset();
         Time.timeScale = 1.0f;
+
     }
     void Update()
     {
@@ -61,29 +62,36 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         endPanel.SetActive(true);
-
+        AudioManager.Instance.SetPitch(1.0f);
         PlayEndGameSound(AudioManager.Instance?.Victory);
+        
     }
 
     void GameFail()
     {
         Time.timeScale = 0.0f;
         failPanel.SetActive(true);
-
+        AudioManager.Instance.SetPitch(1.0f);
         PlayEndGameSound(AudioManager.Instance?.Fail);
+        
     }
 
     private void PlayEndGameSound(AudioClip clip)
     {
-        //AudioManager.Instance?.StopMusic();
-        if (clip != null)
+        if (AudioManager.Instance == null)
         {
-            AudioManager.Instance.PlaySound(clip);
+            Debug.LogError("AudioManager.Instance is null. Ensure AudioManager is in the scene.");
+            return;
         }
-        else
+
+        if (clip == null)
         {
-            Debug.LogWarning("End game sound clip is not set.");
+            Debug.LogWarning("AudioClip is null. Please assign a valid AudioClip in AudioManager.");
+            return;
         }
+
+     // AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySound(clip);
     }
 
     void Reset()
