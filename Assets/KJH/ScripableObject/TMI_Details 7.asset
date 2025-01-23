@@ -15,3 +15,4 @@ MonoBehaviour:
   owner: "\uAE40\uD61C\uC9C0"
   detail: "\uC81C \uACE0\uC591\uC774 \uBCF4\uC138\uC694 \uADC0\uC5FD\uC8E0?"
   image: {fileID: 3614778261372002284, guid: 744eafed4f936b84c8a4f60e8fde3af7, type: 3}
+  zepImage: {fileID: 21300000, guid: 9510c3deb0f7f6e468e391879e736fe6, type: 3}

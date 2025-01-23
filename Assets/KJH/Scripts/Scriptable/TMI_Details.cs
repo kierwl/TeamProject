@@ -12,5 +12,8 @@ public class TMI_Details : ScriptableObject
     [SerializeField]
     private Sprite image;
     public Sprite Image { get { return image; } }
+    [SerializeField]
+    private Sprite zepImage;
+    public Sprite ZepImage { get { return zepImage; } }
 }
 
