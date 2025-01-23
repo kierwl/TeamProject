@@ -6,11 +6,15 @@ public class Card : MonoBehaviour
 {
     public GameObject frontGO;  // 카드 앞면 오브젝트
     public GameObject backGO;   // 카드 뒷면 오브젝트
-
+    
     [SerializeField, Tooltip("카드 앞면 오브젝트의 스프라이트 렌더러")] SpriteRenderer frontImg;
     [SerializeField, Tooltip("카드 뒷면 오브젝트의 Animator")] Animator backAnim;
 
     public int cardIdx = 0;     // 카드 번호
+
+    // 카드가 앞면인지 뒷면인지 확인하는 변수
+    // 앞면이면 true, 뒷면이면 false
+    private bool open = false;
 
     /// <summary>
     /// 게임매니저로부터 번호를 받고
@@ -38,10 +42,21 @@ public class Card : MonoBehaviour
     /// </summary>
     public void OpenCard()
     {
+        // 카드가 이미 앞면인 상태라면 return
+        if(open) return;
+
+        // 카드를 열림 상태로
+        open = true;
         backAnim.SetBool("Reverse", true);
         // 카드 뒤집기 함수 호출
         Invoke("ReverseCard", 0.4f);
+        Invoke("SendCard", 0.5f);
+        AudioManager.Instance?.PlaySound(AudioManager.Instance.flip);
+    }
 
+    // 게임매니저에 이 카드의 정보를 보내는 함수
+    private void SendCard()
+    {
         GameManager gm = GameManager.Instance;
 
         // 이 카드가 뒤집히기 전에 뒤집힌 카드가 없다면
@@ -66,6 +81,7 @@ public class Card : MonoBehaviour
     {
         // 0.5초 후에 DestroyCard 함수 호출
         Invoke("DestroyCard", 0.5f);
+        
     }
 
     /// <summary>
@@ -81,7 +97,11 @@ public class Card : MonoBehaviour
     /// </summary>
     public void CallCloseCard()
     {
+        // 카드를 닫힘 상태로
+        open = false;
+        backAnim.SetBool("Reverse", false);
         // 0.5초 후에 ReverseCard 함수 호출
         Invoke("ReverseCard", 0.5f);
     }
+    
 }
