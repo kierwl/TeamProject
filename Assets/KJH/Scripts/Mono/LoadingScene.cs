@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadScene : MonoBehaviour
+public class LoadingScene : MonoBehaviour
 {
     public void Retry()
     {
