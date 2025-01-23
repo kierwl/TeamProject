@@ -256,6 +256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6840155619285067330, guid: 45120c499da37a94495d9e0047f33044, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 220
+      objectReference: {fileID: 0}
     - target: {fileID: 8900915507412656366, guid: 45120c499da37a94495d9e0047f33044, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -548,6 +552,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f627ae4d3d1e4345baf195a8232466a, type: 2}
   - {fileID: 11400000, guid: 6680205b845eb2c438d32630962927ac, type: 2}
   - {fileID: 11400000, guid: 4fedff360c730ff4792a3f7bb5f758ee, type: 2}
+  particlePrefab: {fileID: 0}
 --- !u!114 &1558689518
 MonoBehaviour:
   m_ObjectHideFlags: 0
