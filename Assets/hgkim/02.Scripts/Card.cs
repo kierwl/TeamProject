@@ -51,6 +51,7 @@ public class Card : MonoBehaviour
         // 카드 뒤집기 함수 호출
         Invoke("ReverseCard", 0.4f);
         Invoke("SendCard", 0.5f);
+        AudioManager.Instance?.PlaySound(AudioManager.Instance.flip);
     }
 
     // 게임매니저에 이 카드의 정보를 보내는 함수
@@ -80,6 +81,7 @@ public class Card : MonoBehaviour
     {
         // 0.5초 후에 DestroyCard 함수 호출
         Invoke("DestroyCard", 0.5f);
+        
     }
 
     /// <summary>
