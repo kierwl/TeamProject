@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance; // ½Ì±ÛÅæ
+    public static AudioManager Instance; // ï¿½Ì±ï¿½ï¿½ï¿½
 
     AudioSource audioSource;
     public AudioClip bgm; // bgm
@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -28,11 +28,11 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         audioSource.clip = bgm; 
-        audioSource.Play(); // bgm ½ÇÇà
+        audioSource.Play(); // bgm ï¿½ï¿½ï¿½ï¿½
     }
 
     //private void Update()
-    //// 50, 55ÃÊ µÉ ¶§ »ç¿îµå ÇÇÄ¡ ¿Ã·Á¼­ ±ä¹Ú°¨ ¿¬Ãâ (GamaeManager.cs¿¡¼­ time º¯¼ö publicÀ¸·Î ¹Ù²Ù´Â °Ô ÇÊ¿äÇÔ)
+    //// 50, 55ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ (GamaeManager.csï¿½ï¿½ï¿½ï¿½ time ï¿½ï¿½ï¿½ï¿½ publicï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù´ï¿½ ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½)
     //{
     //    if (GameManager.Instance.time > 50.0f)
     //    {
