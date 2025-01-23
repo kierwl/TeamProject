@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0323d33669517194e889c4297e79577d, type: 3}
+  m_Name: TMI_Details 8
+  m_EditorClassIdentifier: 
+  owner: "\uC2E0\uC18C\uD604"
+  detail: "\uB77C\uC139\uC744 \uD574\uC11C \uC548\uAD6C\uAC74\uC870\uC99D\uC774 \uC788\uC2B5\uB2C8\uB2E4\u3160\u3160"
+  image: {fileID: 5786088745043326400, guid: e77970d4973becd43a0f287240a9f34c, type: 3}
+  zepImage: {fileID: 21300000, guid: 641cbadcab4bbd145b5f0bcc6ad55497, type: 3}
