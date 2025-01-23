@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance;
+    public static AudioManager Instance; // ï¿½Ì±ï¿½ï¿½ï¿½
 
     AudioSource audioSource;
-    public AudioClip clip;
+    public AudioClip bgm; // bgm
+
 
     private void Awake()
     {
@@ -26,14 +27,21 @@ public class AudioManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        audioSource.clip = this.clip;
-        audioSource.Play();
+        audioSource.clip = bgm; 
+        audioSource.Play(); // bgm ï¿½ï¿½ï¿½ï¿½
     }
-    public void StopMusic()
-    {
-        if (audioSource != null && audioSource.isPlaying)
-        {
-            audioSource.Stop(); // À½¾Ç Á¤Áö
-        }
-    }
+
+    //private void Update()
+    //// 50, 55ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ (GamaeManager.csï¿½ï¿½ï¿½ï¿½ time ï¿½ï¿½ï¿½ï¿½ publicï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù´ï¿½ ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½)
+    //{
+    //    if (GameManager.Instance.time > 50.0f)
+    //    {
+    //        audioSource.pitch = 1.2f;
+    //    }
+    //    if (GameManager.Instance.time > 55.0f && GameManager.Instance.time <= 60.0f)
+    //    {
+    //        audioSource.pitch = 1.4f;
+    //    }
+    //}
+    
 }
