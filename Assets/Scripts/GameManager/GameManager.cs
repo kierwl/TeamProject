@@ -62,15 +62,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;              //게임 잠시 멈추고
         endPanel.SetActive(true);           //끝났다는 글자 등장 -> 이부분을 TMI 나오는 방향으로
         AudioManager.Instance.StopMusic();
+        AudioManager.Instance?.PlaySound(AudioManager.Instance.Victory);
 
-        
+
     }
     void GameFail()
     {
         Time.timeScale = 0.0f;              //게임 잠시 멈추고
         failPanel.SetActive(true);          //실패 패널 등장
         AudioManager.Instance.StopMusic();
-        
+        AudioManager.Instance?.PlaySound(AudioManager.Instance.Fail);
     }
     
     void Reset()
@@ -81,7 +82,7 @@ public class GameManager : MonoBehaviour
         firstCard = null;
         secondCard = null;
         isRunning = true;
-
+        
         // UI 초기화
         timeTxt.text = "0.00";
         endPanel.SetActive(false);
@@ -101,13 +102,15 @@ public class GameManager : MonoBehaviour
             SpawnParticleEffect(secondCard.transform.position);
             ShowDetails(firstCard);                     //디테일 보여줌
 
+            AudioManager.Instance?.PlaySound(AudioManager.Instance.MatchedSound);
+
             cardCount -= 2;                             //카드 개수 업데이트
         }
         else                                            //불일치할 경우 다시 닫기
         {
             firstCard.CallCloseCard();
             secondCard.CallCloseCard();
-            
+            AudioManager.Instance?.PlaySound(AudioManager.Instance.CLOSESound);
 
         }
                                                         //매치카드 초기화
@@ -144,5 +147,6 @@ public class GameManager : MonoBehaviour
 
         yield break;
     }
+    
     
 }
