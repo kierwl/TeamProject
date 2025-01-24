@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance; // Singleton instance
+    public static AudioManager Instance; // 싱글톤
 
     AudioSource audioSource;
-    public AudioClip bgm; // Background music
+    public AudioClip bgm; //bgm
     public AudioClip flip;
     public AudioClip CLOSESound;
     public AudioClip MatchedSound;
@@ -58,6 +58,13 @@ public class AudioManager : MonoBehaviour
         }
 
     }
+    public void SetMute(bool isMuted)
+    {
+        if (audioSource != null)
+        {
+            audioSource.mute = isMuted; // AudioSource의 mute 속성을 설정
+        }
+    }
 
     public void SetPitch(float pitch)
     {
@@ -68,7 +75,7 @@ public class AudioManager : MonoBehaviour
     {
         if (clip != null)
         {
-            audioSource.PlayOneShot(clip); // Play a one-shot sound effect
+            audioSource.PlayOneShot(clip); // 1회재생
         }
     }
     public void StopMusic()
