@@ -1,5 +1,6 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Card : MonoBehaviour
@@ -15,6 +16,8 @@ public class Card : MonoBehaviour
     // 카드가 앞면인지 뒷면인지 확인하는 변수
     // 앞면이면 true, 뒷면이면 false
     private bool open = false;
+
+    
 
     /// <summary>
     /// 게임매니저로부터 번호를 받고
@@ -42,11 +45,13 @@ public class Card : MonoBehaviour
     /// </summary>
     public void OpenCard()
     {
+        GameManager gm = GameManager.Instance;
         // 카드가 이미 앞면인 상태라면 return
         if(open) return;
 
         // 카드를 열림 상태로
         open = true;
+        gm.count++;
         backAnim.SetBool("Reverse", true);
         // 카드 뒤집기 함수 호출
         Invoke("ReverseCard", 0.4f);
@@ -71,6 +76,7 @@ public class Card : MonoBehaviour
             gm.secondCard = this;
             // 게임매니저에서 매치 확인 함수를 호출
             gm.Matched();
+            gm.count = 0;
         }
     }
 

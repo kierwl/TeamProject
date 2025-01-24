@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public GameObject particlePrefab;       //파티클 추가
 
 
+    public int count = 0;
     void Awake()
     {
         if(Instance == null)
@@ -56,6 +57,10 @@ public class GameManager : MonoBehaviour
         if (cardCount == 0 && isRunning)
         {
             GameFinish();
+        }
+        if(count == 2)
+        {
+            emptyPanel.SetActive(true);
         }
     }
     void GameFinish()
@@ -114,7 +119,7 @@ public class GameManager : MonoBehaviour
             firstCard.CallCloseCard();
             secondCard.CallCloseCard();
             AudioManager.Instance?.PlaySound(AudioManager.Instance.CLOSESound);
-
+            emptyPanel.SetActive(false);
         }
                                                         //매치카드 초기화
         firstCard = null;
