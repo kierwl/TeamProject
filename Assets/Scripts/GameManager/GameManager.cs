@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         endPanel.SetActive(true);
         AudioManager.Instance.SetMute(true);
+
     }
 
     void GameFail()
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         failPanel.SetActive(true);
         AudioManager.Instance.SetMute(true);
+
     }
 
     
