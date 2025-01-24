@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         }
         timeTxt.text = time.ToString("N2");
 
-        if(time >= 1.0f)
+        if(time >= 60.0f)
         {
             GameFail();
         }
