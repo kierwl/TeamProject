@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public int cardCount = 0;               //카드 개수
     public Card firstCard;                  //첫번째 카드
     public Card secondCard;                 //두번째 카드
-    AudioSource audioSource;                //BGM
+    public AudioSource audioSource;                //BGM
     public AudioClip clip;                  //BGM 클립
     public Image detailBoxImg;              //맞춘 카드의 이미지
     public bool isRunning = true;           //시간이 작동하는지
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public GameObject particlePrefab;       //파티클 추가
 
 
+    public int count = 0;
     void Awake()
     {
         if(Instance == null)
@@ -57,43 +58,29 @@ public class GameManager : MonoBehaviour
         {
             GameFinish();
         }
+        if(count == 2)
+        {
+            emptyPanel.SetActive(true);
+        }
     }
     void GameFinish()
     {
         Time.timeScale = 0.0f;
         endPanel.SetActive(true);
-        AudioManager.Instance.SetPitch(1.0f);
-        PlayEndGameSound(AudioManager.Instance?.Victory);
-        
+        AudioManager.Instance.SetMute(true);
+
     }
 
     void GameFail()
     {
         Time.timeScale = 0.0f;
         failPanel.SetActive(true);
-        AudioManager.Instance.SetPitch(1.0f);
-        PlayEndGameSound(AudioManager.Instance?.Fail);
-        
+        AudioManager.Instance.SetMute(true);
+
     }
 
-    private void PlayEndGameSound(AudioClip clip)
-    {
-        if (AudioManager.Instance == null)
-        {
-            Debug.LogError("AudioManager.Instance is null. Ensure AudioManager is in the scene.");
-            return;
-        }
-
-        if (clip == null)
-        {
-            Debug.LogWarning("AudioClip is null. Please assign a valid AudioClip in AudioManager.");
-            return;
-        }
-
-     // AudioManager.Instance.StopMusic();
-        AudioManager.Instance.PlaySound(clip);
-    }
-
+    
+   
     void Reset()
     {
         // 게임 상태 초기화
@@ -109,6 +96,7 @@ public class GameManager : MonoBehaviour
         failPanel.SetActive(false);
         detailBox.SetActive(false);
         emptyPanel.SetActive(false);
+        AudioManager.Instance.SetMute(false);
     }
 
     public void Matched()                   //열어 본 카드 두개 비교
@@ -131,7 +119,7 @@ public class GameManager : MonoBehaviour
             firstCard.CallCloseCard();
             secondCard.CallCloseCard();
             AudioManager.Instance?.PlaySound(AudioManager.Instance.CLOSESound);
-
+            emptyPanel.SetActive(false);
         }
                                                         //매치카드 초기화
         firstCard = null;
@@ -168,5 +156,5 @@ public class GameManager : MonoBehaviour
         yield break;
     }
     
-    
+
 }
